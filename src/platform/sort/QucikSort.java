@@ -2,6 +2,7 @@ package platform.sort;
 
 import java.util.Arrays;
 
+//快速排序模板
 public class QucikSort {
 
     public static void main(String[] args) {
