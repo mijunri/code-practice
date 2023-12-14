@@ -1,6 +1,6 @@
-package leetcode.day20231204;
+package leetcode.medium;
 
-import java.lang.reflect.Array;
+
 import java.util.Arrays;
 import java.util.List;
 
@@ -27,7 +27,7 @@ import java.util.List;
  * 输入: s = "catsandog", wordDict = ["cats", "dog", "sand", "and", "cat"]
  * 输出: false
  */
-public class M139 {
+public class WordBreak {
 
     public static void main(String[] args) {
         String target = "leetcode";
