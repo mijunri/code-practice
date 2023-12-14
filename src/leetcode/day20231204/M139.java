@@ -1,5 +1,9 @@
 package leetcode.day20231204;
 
+import java.lang.reflect.Array;
+import java.util.Arrays;
+import java.util.List;
+
 /**
  * 给你一个字符串 s 和一个字符串列表 wordDict 作为字典。请你判断是否可以利用字典中出现的单词拼接出 s 。
  *
@@ -24,4 +28,35 @@ package leetcode.day20231204;
  * 输出: false
  */
 public class M139 {
+
+    public static void main(String[] args) {
+        String target = "leetcode";
+        List<String> words = Arrays.asList("leet", "code", "2", "acd");
+
+        System.out.println(wordbreak(target, words));
+
+
+    }
+
+    public static boolean wordbreak(String target, List<String> wordDict){
+        if (target == null || target.length() == 0){
+            return true;
+        }
+        int len = target.length();
+        Boolean[] dp = new Boolean[len+1];
+        dp[0] = true;
+
+        for (int i = 1; i <= len; i++){
+            dp[i] = false;
+            for (int j = 0; j < i; j++){
+                if (dp[j] && wordDict.contains(target.substring(j, i))){
+                    dp[i] = true;
+                    break;
+                }
+            }
+        }
+
+        return dp[len];
+
+    }
 }
