@@ -10,6 +10,25 @@ package leetcode.medium;
 public class CoinChange {
     public int coinChange(int[] coins, int amount) {
 
-        return 0;
+        int[] dp = new int[amount + 1];
+        dp[0] = 0;
+        for(int i = 1; i <= amount; i ++){
+            dp[i] = Integer.MAX_VALUE;
+            for(int j = 0; j < coins.length; j++){
+                int left = i - coins[j];
+                if(left < 0){
+                    continue;
+                }
+                if(dp[left] != Integer.MAX_VALUE){
+                    dp[i] = Math.min(dp[i], dp[left] + 1);
+                }
+            }
+        }
+
+        // for(int i = 0; i <= amount; i ++){
+        //     System.out.print(dp[i] + ",");
+        // }
+        return dp[amount] == Integer.MAX_VALUE ? -1 : dp[amount];
+
     }
 }
